@@ -16,13 +16,43 @@
       line-height: 1.6;
       color: #333;
       background: #fff0f6;
+      overflow-x: hidden;
+    }
+
+    .start-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(#fff0f6, #ffd6e7);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .start-overlay button {
+      background: #e60073;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      padding: 16px 30px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .start-overlay button:hover {
+      transform: scale(1.05);
+      background: #c60066;
     }
 
     .parallax {
       position: relative;
       min-height: 100vh;
       background-attachment: fixed;
-      background-position: center center;
+      background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       display: flex;
@@ -31,22 +61,14 @@
       text-align: center;
       color: white;
       padding: 40px;
-      z-index: 1;
     }
 
     .landscape-image {
       background-size: contain;
       background-repeat: no-repeat;
-      background-position: center center;
+      background-position: center;
       background-attachment: fixed;
       background-color: #000;
-    }
-
-    .parallax h1 {
-      max-width: 90%;
-      font-size: clamp(1.5rem, 5vw, 3rem);
-      margin: 0 auto;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     }
 
     .text-section {
@@ -74,9 +96,9 @@
       background: #fff0f8;
       border-radius: 15px;
       box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+      border: 2px dashed #ff80ab;
       transform: scale(0.95);
       transition: all 0.6s ease;
-      border: 2px dashed #ff80ab;
       font-family: 'Segoe UI', cursive;
     }
 
@@ -102,6 +124,12 @@
 </head>
 <body>
 
+  <!-- Start Button Overlay -->
+  <div class="start-overlay" id="startOverlay">
+    <h1 style="color: #e60073; margin-bottom: 20px;">Happy Girlfriend Day, Guddu 💖</h1>
+    <button onclick="startExperience()">Start the Experience 🎶</button>
+  </div>
+
   <!-- Background Music -->
   <audio id="bg-music" loop preload="auto">
     <source src="song.mp3" type="audio/mpeg">
@@ -109,25 +137,18 @@
   </audio>
 
   <script>
-    const audio = document.getElementById("bg-music");
-    let musicStarted = false;
-
-    function tryPlayMusic() {
-      if (!musicStarted) {
-        audio.play()
-          .then(() => {
-            musicStarted = true;
-            console.log("Music started.");
-          })
-          .catch((e) => {
-            console.log("Music autoplay blocked:", e);
-          });
-      }
+    function startExperience() {
+      const audio = document.getElementById("bg-music");
+      const overlay = document.getElementById("startOverlay");
+      audio.play()
+        .then(() => {
+          overlay.style.display = "none";
+        })
+        .catch((e) => {
+          alert("Please tap again to start music.");
+          console.log("Playback blocked:", e);
+        });
     }
-
-    // Play on scroll or click
-    window.addEventListener("scroll", tryPlayMusic, { once: true });
-    document.addEventListener("click", tryPlayMusic, { once: true });
   </script>
 
   <!-- Header Section -->
@@ -157,8 +178,8 @@
     </p>
   </section>
 
-  <!-- Image 2 Parallax (full landscape view) -->
-  <div class="parallax landscape-image" style="background-image: url('img2.jpg');"></div>
+  <!-- Image 2 Parallax -->
+  <div class="parallax" style="background-image: url('img2.jpg');"></div>
 
   <!-- My Forever Favorite -->
   <section class="text-section">
