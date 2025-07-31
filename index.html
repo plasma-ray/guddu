@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Girlfriend Day, Guddu 💖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+      background: #fff0f6;
+    }
+
+    .parallax {
+      position: relative;
+      min-height: 100vh;
+      background-attachment: fixed;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 40px;
+      z-index: 1;
+    }
+
+    .landscape-image {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-color: #000;
+    }
+
+    .parallax h1 {
+      max-width: 90%;
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      margin: 0 auto;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .text-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .text-section h2 {
+      color: #e60073;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .text-section p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.2em;
+    }
+
+    .love-letter {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #fff0f8;
+      border-radius: 15px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+      transform: scale(0.95);
+      transition: all 0.6s ease;
+      border: 2px dashed #ff80ab;
+      font-family: 'Segoe UI', cursive;
+    }
+
+    .love-letter:hover {
+      transform: scale(1.02);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      background: #ffd6e7;
+      padding: 20px;
+      text-align: center;
+      color: #8a015f;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .text-section p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <script>
+    // Wait for user interaction to start music (fixes autoplay issues)
+    document.addEventListener("click", function () {
+      const audio = document.getElementById("bg-music");
+      if (audio.paused) {
+        audio.play().catch((e) => console.log("Audio autoplay blocked:", e));
+      }
+    }, { once: true });
+  </script>
+
+  <!-- Header Section -->
+  <div class="parallax" style="background-image: url('hearts.gif');">
+    <div>
+      <h1 style="font-size: clamp(2rem, 5vw, 3rem);">
+        Happy Girlfriend Day, Guddu 💖
+      </h1>
+      <p style="font-size: clamp(1rem, 3vw, 1.5rem); margin-top: 10px;">
+        You're the best thing that ever happened to me.
+      </p>
+      <p style="font-size: clamp(0.9rem, 2.5vw, 1.2rem); margin-top: 5px; color: #ffd6e7;">
+        Scroll to see my fraction of a fraction of my immeasurable love for you 💞
+      </p>
+    </div>
+  </div>
+
+  <!-- Image 1 Parallax -->
+  <div class="parallax" style="background-image: url('img1.jpg');"></div>
+
+  <!-- Our Journey -->
+  <section class="text-section">
+    <h2>Our Journey</h2>
+    <p>
+      From the moment we met, you've made my world brighter, my heart lighter, and my life so much sweeter.
+      Every memory with you is a treasure I hold close.
+    </p>
+  </section>
+
+  <!-- Image 2 Parallax (full landscape view) -->
+  <div class="parallax landscape-image" style="background-image: url('img2.jpg');"></div>
+
+  <!-- My Forever Favorite -->
+  <section class="text-section">
+    <h2>My Forever Favorite</h2>
+    <p>
+      Your smile is my sunrise, your laugh is my melody, and your heart is my home.
+      Thank you for being my everything, my Guddu 💕.
+    </p>
+  </section>
+
+  <!-- Image 3 Parallax -->
+  <div class="parallax" style="background-image: url('img3.jpg');"></div>
+
+  <!-- Love Letter Section -->
+  <section class="text-section">
+    <h2>My Love Letter to You</h2>
+    <div class="love-letter">
+      <p>
+        My dearest Guddu,<br><br>
+        Words can never fully express how much you mean to me. You are my light in the darkest days, my strength when I’m weak, and my joy when life gets hard.
+        Every moment with you is a piece of forever I never want to let go. You are the kindest, most beautiful soul I’ve ever known, and I’m beyond lucky to call you mine.<br><br>
+        I love you more with every heartbeat.<br><br>
+        Forever yours,<br>
+        Your Ghochu 🐨💌
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Made with ❤️ for Guddu by her Ghochu <br>
+    Happy Girlfriend Day 2025
+  </footer>
+
+</body>
+</html>
