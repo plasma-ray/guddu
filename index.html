@@ -103,19 +103,31 @@
 <body>
 
   <!-- Background Music -->
-  <audio id="bg-music" loop>
+  <audio id="bg-music" loop preload="auto">
     <source src="song.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
   </audio>
 
   <script>
-    // Wait for user interaction to start music (fixes autoplay issues)
-    document.addEventListener("click", function () {
-      const audio = document.getElementById("bg-music");
-      if (audio.paused) {
-        audio.play().catch((e) => console.log("Audio autoplay blocked:", e));
+    const audio = document.getElementById("bg-music");
+    let musicStarted = false;
+
+    function tryPlayMusic() {
+      if (!musicStarted) {
+        audio.play()
+          .then(() => {
+            musicStarted = true;
+            console.log("Music started.");
+          })
+          .catch((e) => {
+            console.log("Music autoplay blocked:", e);
+          });
       }
-    }, { once: true });
+    }
+
+    // Play on scroll or click
+    window.addEventListener("scroll", tryPlayMusic, { once: true });
+    document.addEventListener("click", tryPlayMusic, { once: true });
   </script>
 
   <!-- Header Section -->
